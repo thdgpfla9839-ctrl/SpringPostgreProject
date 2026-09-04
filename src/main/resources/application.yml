@@ -1,0 +1,31 @@
+#port => default : 8080 이지만 => 9090로 변경
+#nginx => 80 포트
+#Jenkins => 8080
+# 다른 프로그램과 포트번호가 충돌되면 안 돼
+
+server:
+  port: 9090
+  servlet:
+    context-path: /
+spring:
+  datasource:
+#   oracle:    
+#    url: jdbc:postgresql://localhost:5432/recipe
+#    username: postgres
+#    password: 1234
+#    driver-class-name: org.postgresql.Driver
+   postgres:    
+    url: jdbc:postgresql://localhost:5432/recipe
+    username: postgres
+    password: 1234
+    driver-class-name: org.postgresql.Driver
+  thymeleaf:
+    cache: false
+    encoding: UTF-8
+    prefix: classpath:templates/
+    suffix: .html
+    mode: HTML
+# mybatis
+mybatis:
+  type-aliases-package: com.sist.web.vo
+  #mapper-locations: mybatis/mapper/*.xml
